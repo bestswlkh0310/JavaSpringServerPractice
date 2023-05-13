@@ -4,7 +4,9 @@ public class Book {
     private String title;
     private int price;
 
-    public Book() {}
+    public Book() {
+        System.out.println("init book");
+    }
     public Book(String title, int price) {
         this.title = title;
         this.price = price;
