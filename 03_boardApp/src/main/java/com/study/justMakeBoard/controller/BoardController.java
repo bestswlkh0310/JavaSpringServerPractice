@@ -21,7 +21,6 @@ public class BoardController {
     @PostMapping("/board/writepro")
     public String boardWritePro(Board board) {
         boardService.write(board);
-        System.out.println(board.getContent());
         return "";
     }
 
