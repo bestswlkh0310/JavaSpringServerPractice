@@ -1,17 +1,17 @@
 package com.example.boardserver.domain.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
+import lombok.Data;
 
 @Entity
-@Getter
+@Data
 public class Board {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
-    @Column(name = "title", nullable = false)
+    @Column(nullable = false)
+    private Long idx;
+    @Column(nullable = false)
     private String title;
-    @Column(name = "content", nullable = false)
+    @Column(nullable = false)
     private String content;
 }
