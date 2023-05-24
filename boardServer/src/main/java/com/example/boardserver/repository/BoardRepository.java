@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface BoardRepository extends JpaRepository<Board, Long> {
-    public List<Board> findTop10ByOrderByIdx();
+    public List<Board> findTop10ByOrderByBoardIdx();
 }

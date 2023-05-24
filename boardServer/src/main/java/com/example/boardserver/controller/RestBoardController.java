@@ -1,34 +1,37 @@
 package com.example.boardserver.controller;
 
 import com.example.boardserver.domain.entity.Board;
+import com.example.boardserver.domain.entity.Comment;
+import com.example.boardserver.domain.res.BoardResponse;
 import com.example.boardserver.domain.res.ResponseDto;
 import com.example.boardserver.service.BoardService;
-import lombok.AllArgsConstructor;
+import com.example.boardserver.service.CommentService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@AllArgsConstructor
-@RequestMapping("/api")
+@RequiredArgsConstructor
+@RequestMapping("/api/board")
 public class RestBoardController {
     private final BoardService boardService;
+    private final CommentService commentService;
 
-    @GetMapping("/get/board/{idx}")
+    @GetMapping("/{idx}")
     public ResponseEntity<?> getBoard(@PathVariable("idx") Long idx) {
-        Board board = boardService.getBoard(idx);
-        System.out.println(board.getTitle() + " " + board.getContent());
+        BoardResponse boardResponse = boardService.getBoard(idx);
         return new ResponseEntity<>(
                 ResponseDto.builder()
                         .status(200)
-                        .data(board)
+                        .data(boardResponse)
                         .build()
                 ,
                 HttpStatus.OK
         );
     }
 
-    @GetMapping("/get/board-info")
+    @GetMapping("/infos")
     public ResponseEntity<?> getBoardInfo() {
         return new ResponseEntity<>(
                 ResponseDto.builder()
@@ -39,7 +42,7 @@ public class RestBoardController {
         );
     }
 
-    @GetMapping("/get/boards")
+    @GetMapping("/boards")
     public ResponseEntity<?> getBoards() {
         return new ResponseEntity<>(
                 ResponseDto.builder()
@@ -50,13 +53,35 @@ public class RestBoardController {
         );
     }
 
-    @PostMapping("/post/board")
+    @PostMapping("/post")
     public void postBoard(@RequestBody Board board) {
         boardService.postBoard(board);
     }
 
-    @DeleteMapping("/delete/board/{idx}")
+    @DeleteMapping("/delete/{idx}")
     public void deleteBoard(@PathVariable("idx") Long idx) {
         boardService.deleteBoard(idx);
+    }
+
+    // new
+    @PostMapping("/{id}/post")
+    public void postComment(@PathVariable("idx") Long idx, @RequestBody Comment comment) {
+        
+    }
+
+    @GetMapping("/{id}/comment")
+    public ResponseEntity<?> getComment(@PathVariable("idx") Long idx) {
+        return new ResponseEntity<>(
+                ResponseDto.builder()
+                        .status(200)
+                        .data(commentService.getComment(idx))
+                        .build()
+                , HttpStatus.OK
+        );
+    }
+
+    @DeleteMapping("/{idx}/delete")
+    public void deleteComment(@PathVariable("idx") Long idx) {
+        commentService.deleteComment(idx);
     }
 }
