@@ -21,6 +21,9 @@ public class RestBoardController {
     @GetMapping("/{idx}")
     public ResponseEntity<?> getBoard(@PathVariable("idx") Long idx) {
         BoardResponse boardResponse = boardService.getBoard(idx);
+        System.out.println(boardResponse.getTitle());
+        System.out.println(boardResponse.getContent());
+        System.out.println(boardResponse.getComments());
         return new ResponseEntity<>(
                 ResponseDto.builder()
                         .status(200)
@@ -64,12 +67,12 @@ public class RestBoardController {
     }
 
     // new
-    @PostMapping("/{id}/post")
+    @PostMapping("/{idx}/post")
     public void postComment(@PathVariable("idx") Long idx, @RequestBody Comment comment) {
-        
+        commentService.postComment(comment);
     }
 
-    @GetMapping("/{id}/comment")
+    @GetMapping("/{idx}/comment")
     public ResponseEntity<?> getComment(@PathVariable("idx") Long idx) {
         return new ResponseEntity<>(
                 ResponseDto.builder()

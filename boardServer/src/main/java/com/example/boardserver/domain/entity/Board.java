@@ -20,7 +20,11 @@ public class Board {
     @Column(nullable = false)
     private String content;
 
-    @OneToMany(mappedBy = "board", fetch = FetchType.EAGER)
-    @Column(name = "comments")
+    @OneToMany(mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true/*, fetch = FetchType.EAGER*/)
     private List<Comment> comments = new ArrayList<>();
+
+    public void addComment(Comment comment) {
+        this.comments.add(comment);
+
+    }
 }
