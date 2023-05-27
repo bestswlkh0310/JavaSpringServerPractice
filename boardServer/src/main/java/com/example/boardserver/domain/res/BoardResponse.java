@@ -29,7 +29,7 @@ public class BoardResponse {
     /**
      *  comments
      */
-    private List<Comment> comments;
+//    private List<Comment> comments;
     /**
      * board to boardResponse
      * @param board
@@ -38,7 +38,7 @@ public class BoardResponse {
         System.out.println(board.getTitle());
         idx = board.getBoardIdx();
         title = board.getTitle();
-        content = board.getContent();
-        comments = board.getComments();
+//        content = board.getContent();
+//        comments = board.getComments();
     }
 }

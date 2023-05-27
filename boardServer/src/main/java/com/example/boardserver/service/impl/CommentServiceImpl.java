@@ -5,9 +5,10 @@ import com.example.boardserver.domain.res.CommentResponse;
 import com.example.boardserver.repository.BoardRepository;
 import com.example.boardserver.repository.CommentRepository;
 import com.example.boardserver.service.CommentService;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -18,9 +19,9 @@ public class CommentServiceImpl implements CommentService {
     @Override
     @Transactional
     public void postComment(Comment comment) {
-        System.out.println(comment.toString());
-        boardRepository.findById(comment.getBoard().getBoardIdx()).get().addComment(comment);
-        commentRepository.save(comment);
+//        System.out.println(comment.toString());
+//        boardRepository.findById(comment.getBoard().getBoardIdx()).get().addComment(comment);
+//        commentRepository.save(comment);
     }
 
     @Override

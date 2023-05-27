@@ -23,7 +23,7 @@ public class RestBoardController {
         BoardResponse boardResponse = boardService.getBoard(idx);
         System.out.println(boardResponse.getTitle());
         System.out.println(boardResponse.getContent());
-        System.out.println(boardResponse.getComments());
+//        System.out.println(boardResponse.getComments());
         return new ResponseEntity<>(
                 ResponseDto.builder()
                         .status(200)
@@ -57,17 +57,31 @@ public class RestBoardController {
     }
 
     @PostMapping("/post")
-    public void postBoard(@RequestBody Board board) {
+    public ResponseEntity<?> postBoard(@RequestBody Board board) {
         boardService.postBoard(board);
+        return new ResponseEntity<>(
+                ResponseDto.builder()
+                        .status(200)
+                        .data("successfully completed")
+                        .build()
+                , HttpStatus.OK
+        );
     }
 
     @DeleteMapping("/delete/{idx}")
-    public void deleteBoard(@PathVariable("idx") Long idx) {
+    public ResponseEntity<?> deleteBoard(@PathVariable("idx") Long idx) {
         boardService.deleteBoard(idx);
+        return new ResponseEntity<>(
+                ResponseDto.builder()
+                        .status(200)
+                        .data("successfully completed")
+                        .build()
+                , HttpStatus.OK
+        );
     }
 
     // new
-    @PostMapping("/{idx}/post")
+ /*   @PostMapping("/{idx}/post")
     public void postComment(@PathVariable("idx") Long idx, @RequestBody Comment comment) {
         commentService.postComment(comment);
     }
@@ -86,5 +100,5 @@ public class RestBoardController {
     @DeleteMapping("/{idx}/delete")
     public void deleteComment(@PathVariable("idx") Long idx) {
         commentService.deleteComment(idx);
-    }
+    }*/
 }

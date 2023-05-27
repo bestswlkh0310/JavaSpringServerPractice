@@ -9,5 +9,9 @@ spring:
     open-in-view: false
     hibernate:
       ddl-auto: update
+  security:
+    user:
+      name: '1'
+      password: '1'
 server:
   port: 8090
