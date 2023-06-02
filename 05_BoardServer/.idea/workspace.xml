@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d4250f2-2748-4fdd-be85-49202b6a9111" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../noyoungjae/src/main/java/com/example/noyoungjae/controller/NYJController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../noyoungjae/src/main/resources/static/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../noyoungjae/src/main/resources/templates/go.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../noyoungjae/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../noyoungjae/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../noyoungjae/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../noyoungjae/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1684281097930</updated>
       <workItem from="1684281098976" duration="630000" />
-      <workItem from="1685455697395" duration="606000" />
+      <workItem from="1685455697395" duration="2525000" />
     </task>
     <servers />
   </component>

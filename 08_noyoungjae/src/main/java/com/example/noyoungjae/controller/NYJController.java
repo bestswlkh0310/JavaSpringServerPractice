@@ -11,4 +11,9 @@ public class NYJController {
     public String go() {
         return "go";
     }
+
+    @GetMapping("/nonogram")
+    public String nonogram() {
+        return "nono";
+    }
 }
